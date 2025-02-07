@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "apksums"
-version = "0.1.0"
+version = "0.1.1"
 description = "Verify checksums of installed APK package files"
 readme = "README.md"
 requires-python = ">=3.7"
@@ -42,12 +42,15 @@ apksums = "apksums.main:main"
 [tool.hatch.build.targets.wheel]
 packages = ["apksums"]
 
-[tool.hatch.build]
-exclude = [
-    "tests/*",
-    "docs/*",
-    "*.tests",
-    "*.tests.*",
+
+
+
+[tool.hatch.build.targets.sdist]
+include = [
+  "tests/**/*.py",  # Explicitly include tests in sdist
+  "apksums/**/*.py",
+  "man/**",
+  "pyproject.toml"
 ]
 
 [tool.pytest.ini_options]
