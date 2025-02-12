@@ -4,14 +4,12 @@ build-backend = "hatchling.build"
 
 [project]
 name = "apksums"
-version = "0.1.1"
+version = "0.1.2"
 description = "Verify checksums of installed APK package files"
 readme = "README.md"
 requires-python = ">=3.7"
 license = { file = "LICENSE" }
-authors = [
-    { name = "Jstyles", email = "python@styl.dev" }
-]
+authors = [{ name = "Jstyles", email = "python@styl.dev" }]
 keywords = ["apk", "alpine", "checksums", "verification", "security"]
 classifiers = [
     "Development Status :: 4 - Beta",
@@ -29,7 +27,7 @@ classifiers = [
     "Topic :: Security :: Cryptography",
 ]
 
-dependencies = []  # No external dependencies required
+dependencies = [] # No external dependencies required
 
 [project.urls]
 Homepage = "https://github.com/jontyms/apksums"
@@ -43,22 +41,17 @@ apksums = "apksums.main:main"
 packages = ["apksums"]
 
 
-
-
 [tool.hatch.build.targets.sdist]
 include = [
-  "tests/**/*.py",  # Explicitly include tests in sdist
-  "apksums/**/*.py",
-  "man/**",
-  "pyproject.toml"
+    "tests/**/*.py",   # Explicitly include tests in sdist
+    "apksums/**/*.py",
+    "pyproject.toml",
 ]
 
 [tool.pytest.ini_options]
 minversion = "6.0"
 addopts = "-ra -q"
-testpaths = [
-    "tests",
-]
+testpaths = ["tests"]
 
 [tool.black]
 line-length = 88
